@@ -166,6 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a70b57f786c17449ca71a3bf2d7af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 3731546542407844226, guid: faf094ad8aae47d489d5d2c7c3b01221, type: 3}
   agent: {fileID: 1157238503326977640}
-  moveSpeed: 5
+  moveSpeed: 10

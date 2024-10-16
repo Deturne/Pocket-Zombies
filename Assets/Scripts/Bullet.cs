@@ -32,13 +32,13 @@ public class Bullet : MonoBehaviour
 
                     if (gameObject.tag == "ArBullet")
                     {
-                        collision.transform.GetComponent<EnemyAi>().TakeDamage(WeaponFire.weaponDamage);
+                        collision.transform.GetComponent<EnemyAi>().TakeDamage(WeaponFireAr.weaponDamage);
                         PlayerController.points += 50;
                     }
 
             }
                
-             collision.transform.GetComponent<EnemyAi>().TakeDamage(WeaponFire.weaponDamage);
+             
                 
                 Destroy(gameObject);
             }

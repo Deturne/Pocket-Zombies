@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyAi : MonoBehaviour
 {
-    [SerializeField] private Transform target;
+    public Transform target;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private float moveSpeed = 5f;
     private float maxHp = 150f;
@@ -18,6 +18,7 @@ public class EnemyAi : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         agent.speed = moveSpeed;
+        target = Camera.main.transform;
         target.position = Camera.main.transform.position;
         currentHealth = maxHp;
         
@@ -44,5 +45,10 @@ public class EnemyAi : MonoBehaviour
         {
             PlayerController.currentHealth = PlayerController.currentHealth - 5;
         }
+    }
+
+    public static void OnDestroy()
+    {
+       
     }
 }
