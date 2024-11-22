@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 6482766b3c244e74b94189ff583eb80e
+  - enabled: 1
+    path: Assets/Scenes/PocketZombies.unity
+    guid: b32dda98429ecad46be6803900f2ff2d
+  - enabled: 1
+    path: Assets/DeathScreen.unity
+    guid: 3cfcbd5381fb89f47ae4d9e201a0ed56
   m_configObjects: {}

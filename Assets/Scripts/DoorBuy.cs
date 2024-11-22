@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,11 +10,15 @@ public class DoorBuy : MonoBehaviour
     [SerializeField] int doorCost;
     [SerializeField] TextMeshProUGUI doorCostText;
     [SerializeField] GameObject door;
+    public static bool doorBought;
     bool inRange = false;
+
+    public NavMeshSurface navSurface;
     // Start is called before the first frame update
     void Start()
     {
         inRange = false;
+        doorBought = false;
     }
 
     // Update is called once per frame
@@ -23,7 +28,18 @@ public class DoorBuy : MonoBehaviour
         {
             if (inRange)
             {
+                
                 Destroy(door);
+                //navSurface.BuildNavMesh();
+
+                //if (navSurface != null)
+                //{
+                //    navSurface.BuildNavMesh();
+                //}
+
+
+
+                doorBought =true;
                 doorCostText.text = " ";
                 PlayerController.points -= doorCost;
             }
@@ -50,4 +66,6 @@ public class DoorBuy : MonoBehaviour
         doorCostText.text = " ";
         inRange = false;
     }
+
+    
 }

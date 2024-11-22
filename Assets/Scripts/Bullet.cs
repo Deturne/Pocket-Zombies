@@ -2,47 +2,74 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] AudioSource impact;
+                     
+    
+    public static bool shotgunImpact;
+
+    public void Start()
     {
-     
+        shotgunImpact = false;
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-            if(gameObject.tag == "PistolBullet" || gameObject.tag == "ArBullet")
-            {
+           
 
                 if (collision.transform.CompareTag("Zombie"))
                 {
                     if(gameObject.tag == "PistolBullet")
                     {
-                    collision.transform.GetComponent<EnemyAi>().TakeDamage(WeaponFire.weaponDamage);
-                    PlayerController.points += 50;
-                    }
+                        collision.transform.GetComponent<EnemyAi>().TakeDamage(WeaponFire.weaponDamage);
+                        Destroy(gameObject);
+                    }   
 
                     if (gameObject.tag == "ArBullet")
                     {
                         collision.transform.GetComponent<EnemyAi>().TakeDamage(WeaponFireAr.weaponDamage);
-                        PlayerController.points += 50;
+                        Destroy(gameObject);
+
+
                     }
 
-            }
-               
-             
-                
-                Destroy(gameObject);
-            }
+                    if (gameObject.tag == "Pellet")
+                    {
+                        
+                        collision.transform.GetComponent<EnemyAi>().TakeDamage(WeaponFireShotgun.weaponDamage);
 
-        }
+                        Destroy(gameObject);
+
+                    }
+                    
+                    
+                    Debug.Log("Sound Played");
+
+                    impact.Play();
+
+                }
+                else
+                {
+                    
+                    Debug.Log("Sound Played");
+                    impact.Play();
+                    //Destroy(gameObject);
+                }
+
+
+
+
+
+
+            
+
     }
+    
+}
+
 

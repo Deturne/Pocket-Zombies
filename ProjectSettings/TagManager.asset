@@ -11,6 +11,8 @@ TagManager:
   - PistolBullet
   - ArBullet
   - Head
+  - Pellet
+  - Shotgun
   layers:
   - Default
   - TransparentFX

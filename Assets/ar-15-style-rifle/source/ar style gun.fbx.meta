@@ -3,7 +3,32 @@ guid: 3af9ae182efe9014da874bacec41e7e0
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ar 15 2
+    second: {fileID: 2100000, guid: ee73e6ec940fde140b0f168375877142, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ar15 1
+    second: {fileID: 2100000, guid: 0315a6b3395f1694b9dc70c1743de717, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bullets
+    second: {fileID: 2100000, guid: e9f0438707a561a41bf022ddad2feb64, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gps
+    second: {fileID: 2100000, guid: 448c0c001c806f24f836db9e1632d709, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: optic.001
+    second: {fileID: 2100000, guid: a47a34db090a46b45a85deac6c99c08a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

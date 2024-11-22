@@ -25,6 +25,7 @@ public class WeaponFireAr : MonoBehaviour
     [SerializeField] private Transform firePoint;
 
     private float nextFireTime = 0f;  // To track time between shots
+    [SerializeField] Animator animator;
 
 
     // Start is called before the first frame update
@@ -39,11 +40,12 @@ public class WeaponFireAr : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetButton("Fire1") && Time.time >= nextFireTime) {
+        if (Input.GetButton("Fire1") && Time.time >= nextFireTime && canFire) {
             if(currentLoadedAmmo > 0)
             {
                 Fire();
                 bulletSound.Play();
+                animator.SetTrigger("Shoot");
                 nextFireTime = Time.time + fireRate;
 
             }
@@ -51,8 +53,7 @@ public class WeaponFireAr : MonoBehaviour
 
         if (Input.GetButtonDown("Reload") && currentSpareAmmo != 0)
         {
-            Reload();
-            reload.Play();
+            Reload(); 
             bulletSound.Stop();
         }
 
@@ -60,6 +61,34 @@ public class WeaponFireAr : MonoBehaviour
         {
             canFire = false;
             canReload = false;
+        }
+
+        if (Input.GetButton("Inspect"))
+        {
+            animator.SetTrigger("Inspect");
+            
+        }
+
+        if (PauseMenu.isPaused)
+        {
+            canFire = false;
+        }
+        else
+        {
+            canFire = true;
+        }
+
+        if (PlayerController.restarted)
+        {
+            ammoCapacity = 30;
+            currentLoadedAmmo = ammoCapacity;
+            currentSpareAmmo = 120;
+
+        }
+
+        if (currentLoadedAmmo == 0 && canReload)
+        {
+            StartCoroutine(EmptyLoad());
         }
     }
 
@@ -82,6 +111,9 @@ public class WeaponFireAr : MonoBehaviour
             newAmmo = ammoCapacity - currentLoadedAmmo;
             currentSpareAmmo -= newAmmo;
             currentLoadedAmmo = ammoCapacity;
+            animator.SetTrigger("Reload");
+            StartCoroutine(ResetReload(animator));
+            reload.Play();
 
             if (currentSpareAmmo <= 0)
             {
@@ -113,6 +145,13 @@ public class WeaponFireAr : MonoBehaviour
             currentLoadedAmmo = 0;
             canFire = false;
         }
+
+        if (currentLoadedAmmo >= 0)
+        {
+            canFire = true;
+            canReload = true;
+        }
+
     }
 
     private IEnumerator DestroyBullet(GameObject bullet, float bulletLife)
@@ -120,4 +159,22 @@ public class WeaponFireAr : MonoBehaviour
         yield return new WaitForSeconds(bulletLife);
         Destroy(bullet);
     }
+
+    public int GetAmmoCapacity() 
+    {
+        ammoCapacity = 30;
+        return ammoCapacity;
+    }
+
+    private IEnumerator ResetReload(Animator animator)
+    {
+        yield return new WaitForSeconds(1f);
+        animator.ResetTrigger("Reload");
+    }
+    private IEnumerator EmptyLoad()
+    {
+        yield return new WaitForSeconds(1f);
+        Reload();
+    }
+
 }

@@ -48,9 +48,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AmmoText: {fileID: 0}
   pointsText: {fileID: 0}
+  crosshair: {fileID: 0}
   weapons:
   - {fileID: 2518402471493543121}
   - {fileID: 1809053247031946910}
+  RoundText: {fileID: 0}
+  switchsfx: {fileID: 0}
 --- !u!1 &285096092789176196
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,6 +616,8 @@ MonoBehaviour:
   bulletLife: 2
   bulletSound: {fileID: 9027350842813516091}
   firePoint: {fileID: 955930355715078778}
+  shootanim: {fileID: 0}
+  reload: {fileID: 0}
 --- !u!82 &9027350842813516091
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1152,6 +1157,7 @@ MonoBehaviour:
   reload: {fileID: 1454331771451450970}
   fireRate: 0.1
   firePoint: {fileID: 3776766850790156353}
+  animator: {fileID: 0}
 --- !u!82 &127070355987075785
 AudioSource:
   m_ObjectHideFlags: 0

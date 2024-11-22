@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1855254006404496894}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: PistolBullet
+  m_TagString: Pellet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,3 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd60a47c200983a4b9acae6193db8528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  impact: {fileID: 3069808517845022630, guid: 6fae0690bce8eb542a006b2f220ee693, type: 3}
