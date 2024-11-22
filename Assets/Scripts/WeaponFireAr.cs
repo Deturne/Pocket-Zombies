@@ -63,11 +63,7 @@ public class WeaponFireAr : MonoBehaviour
             canReload = false;
         }
 
-        if (Input.GetButton("Inspect"))
-        {
-            animator.SetTrigger("Inspect");
-            
-        }
+        
 
         if (PauseMenu.isPaused)
         {
