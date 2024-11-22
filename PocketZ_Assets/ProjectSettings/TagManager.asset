@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - Zombie
+  - Pistol
+  - Ar
+  - PistolBullet
+  - ArBullet
+  - Head
+  - Pellet
+  - Shotgun
   layers:
   - Default
   - TransparentFX
